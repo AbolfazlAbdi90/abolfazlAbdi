@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import AboutMe from "./About/page";
 
 const sentences: string[] = [
-  "I have 2 years of experience in Frontend Development",
-  "i love programing",
-  "I work at the Abalon",
-  "im computer engineer",
+  "I have 1.5 years of experience in Frontend Development👩‍💻",
+  "i love programing ❤️",
+  "I work at the Abalon❤️",
+  "im computer engineer👩‍💻",
 ];
 
 const Typewriter: React.FC = () => {
@@ -232,7 +232,7 @@ const Home: React.FC = () => {
               Home
             </a>
             <a
-              href="/About"
+              href="#About"
               className="block hover:text-purple-700"
               onClick={() => setMenuOpen(false)}
             >
@@ -256,7 +256,7 @@ const Home: React.FC = () => {
           <a href="#about" className="hover:underline">
             About Me
           </a>
-          <a href="#portfolio" className="hover:underline">
+          <a href="#profile" className="hover:underline">
             Portfolio
           </a>
         </nav>
@@ -439,12 +439,15 @@ const Home: React.FC = () => {
           </motion.div>
         </div>
       </header>
-      <AboutMe
+      <div id="About">
+        <AboutMe
         introText="I love being a developer!"
         detailText={`Hello, I am Abolfazl Abdi, Front-End developer with a passion for building efficient solutions and learning new technologies. I started programming in 2024 and have been deepening my expertise since 2025. Alongside coding, I actively study startups and business models, and enjoy following my favorite series.
 
 I have a strong background in computer hardware,  and I am highly interested in teaching and knowledge sharing. My strengths include creativity, adaptability, and a collaborative spirit, which help me thrive in team environments and bring innovative ideas to the table.`}
       />
+      </div>
+      
     </>
   );
 };

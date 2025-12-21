@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 
@@ -28,24 +28,24 @@ const experiences = [
     duration: "2024 - ...",
     status: "remote",
     duties: [
-      "Strong Communication Skills",
-      "Patience and Composure",
-      "Problem-Solving and Analytical Thinking",
-      "Teamwork +",
-      
+      "Team training and structured planning",
+      "Content team management for goals achievement",
+      "Collaboration with related teams, including sales",
+      "Managing content and digital production team",
+      "Evaluating team performance and reporting to management",
     ],
   },
+
   {
     company: "Abalon",
     position: "front-end",
     duration: "2025 - ...",
     status: "Full Time",
     duties: [
-      "Team training and structured planning",
-      "Content team management for goals achievement",
-      "Collaboration with related teams, including sales",
-      "Managing content and digital production team",
-      "Evaluating team performance and reporting to management",
+      "Strong Communication Skills",
+      "Patience and Composure",
+      "Problem-Solving and Analytical Thinking",
+      "Teamwork +",
     ],
   },
 ];
@@ -75,6 +75,7 @@ const AboutMe: React.FC<AboutMeProps> = ({ introText, detailText }) => {
       </motion.div>
 
       {/* بخش مهارت‌ها */}
+
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -105,103 +106,102 @@ const AboutMe: React.FC<AboutMeProps> = ({ introText, detailText }) => {
       </motion.div>
 
       {/* بخش تجربه کاری مطابق عکس */}
-     <motion.section
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.8 }}
-  className="mt-24 relative"
->
-  {/* هدر */}
-  <div className="flex items-center gap-6 mb-14">
-    <h2 className="text-3xl font-extrabold text-blue-900 tracking-wide">
-      Experience
-    </h2>
-
-    <div className="flex items-center gap-2 border-b-2 border-black pb-1">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        viewBox="0 0 24 24"
-        className="w-8 h-8 text-black"
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="mt-24 relative"
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M7 20v-2a4 4 0 014-4h6M7 4v16M7 4a4 4 0 014 4v0a4 4 0 004 4h2"
-        />
-      </svg>
-      <span className="font-semibold text-gray-700">Career</span>
-    </div>
-  </div>
+        {/* هدر */}
+        <div className="flex items-center gap-6 mb-14">
+          <h2 className="text-3xl font-extrabold text-blue-900 tracking-wide">
+            Experience
+          </h2>
 
-  {/* کارت‌ها */}
-  <div className="grid md:grid-cols-2 gap-12">
-    {experiences.map(
-      ({ company, position, duration, status, duties }, index) => (
-        <motion.div
-          key={index}
-          whileHover={{ y: -8, scale: 1.02 }}
-          transition={{ type: "spring", stiffness: 200 }}
-          className="relative bg-white/80 backdrop-blur-xl rounded-2xl border border-blue-900/30 p-8 shadow-lg hover:shadow-2xl"
-        >
-          {/* هدر کارت */}
-          <div className="flex items-center gap-6 mb-6">
-            {/* لوگو */}
-            <div className="w-24 h-24 rounded-xl bg-gradient-to-br from-purple-200 to-blue-200 flex items-center justify-center shadow-inner">
-              {company === "Beautyland" ? (
-                <img
-                  src="/image/ChatGPT Image Sep 28, 2025, 05_03_22 AM.png"
-                  alt="Beautyland Logo"
-                  className="max-w-[80%] max-h-[80%] object-contain"
-                />
-              ) : company === "Abalon" ? (
-                <img
-                  src="/image/image copy.png"
-                  alt="Abalon Logo"
-                  className="max-w-[80%] max-h-[80%] object-contain"
-                />
-              ) : (
-                <span className="text-gray-500 text-sm">Logo</span>
-              )}
-            </div>
-
-            {/* اطلاعات */}
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900">
-                {company}
-              </h3>
-              <p className="text-gray-500 italic text-sm">{position}</p>
-              <p className="text-purple-700 font-semibold mt-1">
-                {duration}
-              </p>
-
-              <span className="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-800">
-                {status}
-              </span>
-            </div>
+          <div className="flex items-center gap-2 border-b-2 border-black pb-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              viewBox="0 0 24 24"
+              className="w-8 h-8 text-black"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M7 20v-2a4 4 0 014-4h6M7 4v16M7 4a4 4 0 014 4v0a4 4 0 004 4h2"
+              />
+            </svg>
+            <span className="font-semibold text-gray-700">Career</span>
           </div>
+        </div>
 
-          {/* وظایف */}
-          <ul className="space-y-2 text-gray-700 text-sm leading-relaxed">
-            {duties.map((duty, i) => (
-              <li key={i} className="flex gap-2">
-                <span className="text-purple-600">▹</span>
-                <span>{duty}</span>
-              </li>
-            ))}
-          </ul>
+        {/* کارت‌ها */}
+        <div className="grid md:grid-cols-2 gap-12">
+          {experiences.map(
+            ({ company, position, duration, status, duties }, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="relative bg-white/80 backdrop-blur-xl rounded-2xl border border-blue-900/30 p-8 shadow-lg hover:shadow-2xl"
+              >
+                {/* هدر کارت */}
+                <div className="flex items-center gap-6 mb-6">
+                  {/* لوگو */}
+                  <div className="w-24 h-24 rounded-xl bg-gradient-to-br from-purple-200 to-blue-200 flex items-center justify-center shadow-inner">
+                    {company === "Beautyland" ? (
+                      <img
+                        src="/image/ChatGPT Image Sep 28, 2025, 05_03_22 AM.png"
+                        alt="Beautyland Logo"
+                        className="max-w-[80%] max-h-[80%] object-contain"
+                      />
+                    ) : company === "Abalon" ? (
+                      <img
+                        src="/image/image copy.png"
+                        alt="Abalon Logo"
+                        className="max-w-[80%] max-h-[80%] object-contain"
+                      />
+                    ) : (
+                      <span className="text-gray-500 text-sm">Logo</span>
+                    )}
+                  </div>
 
-          {/* افکت گوشه */}
-          <div className="absolute -top-2 -right-2 w-16 h-16 bg-purple-300/20 rounded-full blur-2xl" />
-        </motion.div>
-      )
-    )}
-  </div>
-</motion.section>
+                  {/* اطلاعات */}
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">
+                      {company}
+                    </h3>
+                    <p className="text-gray-500 italic text-sm">{position}</p>
+                    <p className="text-purple-700 font-semibold mt-1">
+                      {duration}
+                    </p>
 
+                    <span className="inline-block mt-3 px-4 py-1 rounded-full text-xs font-semibold bg-purple-100 text-purple-800">
+                      {status}
+                    </span>
+                  </div>
+                </div>
+
+                {/* وظایف */}
+                <ul className="space-y-2 text-gray-700 text-sm leading-relaxed">
+                  {duties.map((duty, i) => (
+                    <li key={i} className="flex gap-2">
+                      <span className="text-purple-600">▹</span>
+                      <span>{duty}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* افکت گوشه */}
+                <div className="absolute -top-2 -right-2 w-16 h-16 bg-purple-300/20 rounded-full blur-2xl" />
+              </motion.div>
+            )
+          )}
+        </div>
+      </motion.section>
     </section>
   );
 };
