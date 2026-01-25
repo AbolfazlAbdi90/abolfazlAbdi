@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import AboutMe from "./About/page";
+import AbalonTeam from "./Component/AbalonTeam";
 
 const sentences: string[] = [
   "I have 1.5 years of experience in Frontend Development👩‍💻",
@@ -333,54 +334,52 @@ const Home: React.FC = () => {
             <div className="flex justify-center md:justify-start space-x-6 mt-6 text-black">
               {/* Telegram */}
               <a
-  href="https://t.me/AbolfazlAbdi9"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Telegram"
-  className="hover:text-purple-700 transition"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="w-8 h-8 text-black"
-  >
-    {/* بدنه تلگرام */}
-    <path d="M21.5 3.5L3 11l6.5 2.2L18.5 7l-7 7.5v3.8l2.9-2.8 3.7 2.7c.5.3 1.1 0 1.3-.6l3.1-13.3c.2-.7-.4-1.2-1-.8z" />
-  </svg>
-</a>
-
+                href="https://t.me/AbolfazlAbdi9"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Telegram"
+                className="hover:text-purple-700 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-8 h-8 text-black"
+                >
+                  {/* بدنه تلگرام */}
+                  <path d="M21.5 3.5L3 11l6.5 2.2L18.5 7l-7 7.5v3.8l2.9-2.8 3.7 2.7c.5.3 1.1 0 1.3-.6l3.1-13.3c.2-.7-.4-1.2-1-.8z" />
+                </svg>
+              </a>
 
               {/* WhatsApp */}
-            <a
-  href="https://wa.me/989378546568"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="WhatsApp"
-  className="hover:text-green-600 transition"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="w-8 h-8 text-black"
-  >
-    {/* دایره */}
-    <path d="M12 2a9.93 9.93 0 0 0-8.56 14.96L2 22l5.2-1.36A10 10 0 1 0 12 2z" />
+              <a
+                href="https://wa.me/989378546568"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="hover:text-green-600 transition"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-8 h-8 text-black"
+                >
+                  {/* دایره */}
+                  <path d="M12 2a9.93 9.93 0 0 0-8.56 14.96L2 22l5.2-1.36A10 10 0 1 0 12 2z" />
 
-    {/* تلفن */}
-    <path d="M16.1 13.6c-.2-.1-1.2-.6-1.4-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.8.8-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.5-1-1.1-1.1-1.4-.1-.2 0-.3.1-.4l.4-.4.2-.4c.1-.1 0-.3 0-.4l-.6-1.5c-.2-.4-.4-.4-.5-.4h-.4c-.1 0-.3 0-.5.2-.2.2-.6.6-.6 1.4 0 .8.6 1.6.7 1.8.1.1 1.2 2 3 2.7.4.2.7.3 1 .3.4.1.8.1 1.1.1.3 0 1-.4 1.2-.8.2-.4.2-.8.1-.9 0-.1-.2-.2-.4-.3z" />
-  </svg>
-</a>
-
+                  {/* تلفن */}
+                  <path d="M16.1 13.6c-.2-.1-1.2-.6-1.4-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.8.8-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.5-1-1.1-1.1-1.4-.1-.2 0-.3.1-.4l.4-.4.2-.4c.1-.1 0-.3 0-.4l-.6-1.5c-.2-.4-.4-.4-.5-.4h-.4c-.1 0-.3 0-.5.2-.2.2-.6.6-.6 1.4 0 .8.6 1.6.7 1.8.1.1 1.2 2 3 2.7.4.2.7.3 1 .3.4.1.8.1 1.1.1.3 0 1-.4 1.2-.8.2-.4.2-.8.1-.9 0-.1-.2-.2-.4-.3z" />
+                </svg>
+              </a>
 
               {/* Instagram */}
               <a
@@ -441,13 +440,13 @@ const Home: React.FC = () => {
       </header>
       <div id="About">
         <AboutMe
-        introText="I love being a developer!"
-        detailText={`Hello, I am Abolfazl Abdi, Front-End developer with a passion for building efficient solutions and learning new technologies. I started programming in 2024 and have been deepening my expertise since 2025. Alongside coding, I actively study startups and business models, and enjoy following my favorite series.
+          introText="I love being a developer!"
+          detailText={`Hello, I am Abolfazl Abdi, Front-End developer with a passion for building efficient solutions and learning new technologies. I started programming in 2024 and have been deepening my expertise since 2025. Alongside coding, I actively study startups and business models, and enjoy following my favorite series.
 
 I have a strong background in computer hardware,  and I am highly interested in teaching and knowledge sharing. My strengths include creativity, adaptability, and a collaborative spirit, which help me thrive in team environments and bring innovative ideas to the table.`}
-      />
+        />
       </div>
-      
+      <AbalonTeam />
     </>
   );
 };

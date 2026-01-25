@@ -15,7 +15,7 @@ const skills = [
   { name: "React", percent: 85 },
   { name: "Next.js", percent: 75 },
   { name: "Node.js", percent: 70 },
-  { name: "Vue.js", percent: 60 },
+  { name: "Vue.js", percent: 70 },
   { name: "TypeScript", percent: 65 },
   { name: "GitHub", percent: 75 },
   { name: "GitLab", percent: 70 },
