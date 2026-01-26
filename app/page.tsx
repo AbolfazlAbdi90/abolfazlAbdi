@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import AboutMe from "./About/page";
 import AbalonTeam from "./Component/AbalonTeam";
+import AboutMeandTitle from "./Component/AboutMeandTitle";
 
 const sentences: string[] = [
   "I have 1.5 years of experience in Frontend Development👩‍💻",
@@ -447,6 +448,8 @@ I have a strong background in computer hardware,  and I am highly interested in 
         />
       </div>
       <AbalonTeam />
+
+      <AboutMeandTitle />
     </>
   );
 };
