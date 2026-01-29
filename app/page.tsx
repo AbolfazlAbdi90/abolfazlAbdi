@@ -245,7 +245,7 @@ const Home: React.FC = () => {
               className="block hover:text-purple-700"
               onClick={() => setMenuOpen(false)}
             >
-              Portfolio
+              Profile
             </a>
           </nav>
         )}
