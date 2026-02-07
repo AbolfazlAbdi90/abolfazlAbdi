@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import AboutMe from "./About/page";
 import AbalonTeam from "./Component/AbalonTeam";
 import AboutMeandTitle from "./Component/AboutMeandTitle";
+import Projects from "./Component/MyProject";
 
 const sentences: string[] = [
   "I have 1.5 years of experience in Frontend Development👩‍💻",
@@ -22,7 +23,7 @@ const Typewriter: React.FC = () => {
     if (wordIndex < words.length) {
       const timeout = setTimeout(() => {
         setDisplayText((prev) =>
-          prev ? prev + " " + words[wordIndex] : words[wordIndex]
+          prev ? prev + " " + words[wordIndex] : words[wordIndex],
         );
         setWordIndex(wordIndex + 1);
       }, 400);
@@ -450,6 +451,7 @@ I have a strong background in computer hardware,  and I am highly interested in 
       <AbalonTeam />
 
       <AboutMeandTitle />
+      <Projects />
     </>
   );
 };
