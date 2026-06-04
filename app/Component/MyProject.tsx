@@ -31,7 +31,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div className="bg-gradient-to-r from-purple-400  to-blue-200  py-16 px-6 flex flex-col items-center">
+    <div className="bg-purple-300  py-16 px-6 flex flex-col items-center">
       <h1 className="text-6xl font-extrabold text-white mb-20 text-center drop-shadow-lg tracking-wide select-none">
         My Projects
       </h1>

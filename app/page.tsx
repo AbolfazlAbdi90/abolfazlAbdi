@@ -184,7 +184,7 @@ const Home: React.FC = () => {
     <>
       <Snowfall />
       <header className="bg-purple-300 min-h-[500px] relative flex flex-col md:flex-row items-center justify-center p-8 md:p-16">
-        {/* لوگو بالا سمت چپ */}
+        {/* logo*/}
         <motion.div
           className="absolute top-6 left-6 text-3xl font-bold text-teal-700 select-none z-30"
           initial={{ opacity: 0, x: -20 }}
@@ -194,13 +194,13 @@ const Home: React.FC = () => {
           AB
         </motion.div>
 
-        {/* منوی همبرگر موبایل */}
+        {/* meno in mobile*/}
         <button
           className="absolute top-6 right-6 md:hidden z-40 p-2 rounded-md text-black hover:text-purple-700 focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          {/* آیکون همبرگر */}
+          {/* meno*/}
           <svg
             className="w-8 h-8"
             fill="none"
@@ -224,7 +224,7 @@ const Home: React.FC = () => {
           </svg>
         </button>
 
-        {/* منوی موبایل */}
+        {/* meno mobile*/}
         {menuOpen && (
           <nav className="absolute top-16 right-6 bg-white rounded-md shadow-lg py-4 px-6 space-y-4 z-40 md:hidden">
             <a
@@ -251,7 +251,7 @@ const Home: React.FC = () => {
           </nav>
         )}
 
-        {/* منوی دسکتاپ */}
+        {/* meno Desktop*/}
         <nav className="hidden md:flex absolute top-6 right-6 space-x-8 text-black text-lg z-30">
           <a href="#home" className="hover:underline">
             Home
@@ -271,7 +271,7 @@ const Home: React.FC = () => {
         md:space-x-40 lg:space-x-32
       "
         >
-          {/* تصویر پروفایل */}
+          {/* profile*/}
           <motion.div
             className="
           relative
@@ -294,7 +294,7 @@ const Home: React.FC = () => {
               className="object-cover w-full h-full"
             />
 
-            {/* حلقه دایره‌ای */}
+            {/* ring*/}
             <svg
               className="absolute bottom-0 left-0 w-full h-full pointer-events-none"
               viewBox="0 0 200 200"
@@ -310,7 +310,7 @@ const Home: React.FC = () => {
             </svg>
           </motion.div>
 
-          {/* متن معرفی */}
+          {/* text myself*/}
           <motion.div
             className="
           flex-1
@@ -332,7 +332,7 @@ const Home: React.FC = () => {
               <span className="text-black">Abdi</span>
             </h1>
 
-            {/* آیکون‌های شبکه اجتماعی */}
+            {/* آicon social media */}
             <div className="flex justify-center md:justify-start space-x-6 mt-6 text-black">
               {/* Telegram */}
               <a
@@ -375,10 +375,10 @@ const Home: React.FC = () => {
                   strokeLinejoin="round"
                   className="w-8 h-8 text-black"
                 >
-                  {/* دایره */}
+                  {/* ring*/}
                   <path d="M12 2a9.93 9.93 0 0 0-8.56 14.96L2 22l5.2-1.36A10 10 0 1 0 12 2z" />
 
-                  {/* تلفن */}
+                  {/* phone*/}
                   <path d="M16.1 13.6c-.2-.1-1.2-.6-1.4-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.8.8-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.5-1-1.1-1.1-1.4-.1-.2 0-.3.1-.4l.4-.4.2-.4c.1-.1 0-.3 0-.4l-.6-1.5c-.2-.4-.4-.4-.5-.4h-.4c-.1 0-.3 0-.5.2-.2.2-.6.6-.6 1.4 0 .8.6 1.6.7 1.8.1.1 1.2 2 3 2.7.4.2.7.3 1 .3.4.1.8.1 1.1.1.3 0 1-.4 1.2-.8.2-.4.2-.8.1-.9 0-.1-.2-.2-.4-.3z" />
                 </svg>
               </a>

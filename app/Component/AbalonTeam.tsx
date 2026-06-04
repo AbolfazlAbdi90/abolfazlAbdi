@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const images = [
   "/image/AbalonTeam/IMG_20260124_213944_363.jpg",
-  "/image/AbalonTeam/TeamInCafe.jpg",
   "/image/AbalonTeam/TeamInOffice.jpg",
 ];
 
