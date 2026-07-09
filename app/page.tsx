@@ -448,7 +448,7 @@ const Home: React.FC = () => {
 I have a strong background in computer hardware,  and I am highly interested in teaching and knowledge sharing. My strengths include creativity, adaptability, and a collaborative spirit, which help me thrive in team environments and bring innovative ideas to the table.`}
         />
       </div>
-      <AbalonTeam />
+      {/* <AbalonTeam /> */}
 
       <AboutMeandTitle />
       <Projects />
