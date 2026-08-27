@@ -5,6 +5,7 @@ import AboutMe from "./About/page";
 import AbalonTeam from "./Component/AbalonTeam";
 import AboutMeandTitle from "./Component/AboutMeandTitle";
 import Projects from "./Component/MyProject";
+import { sendTelegramMessage } from "./Services/telegram";
 
 const sentences: string[] = [
   "I have 1.5 years of experience in Frontend Development👩‍💻",
@@ -179,7 +180,11 @@ const Snowfall: React.FC = () => {
 
 const Home: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-
+  useEffect(() => {
+    sendTelegramMessage(
+      `🔔 بازدید جدید از Portfolio!\n\n🌐 سایت: Abolfazl Abdi\n🕐 زمان: ${new Date().toLocaleString()}`,
+    );
+  }, []);
   return (
     <>
       <Snowfall />
@@ -444,7 +449,6 @@ const Home: React.FC = () => {
         <AboutMe
           introText="I love being a developer!"
           detailText={`Hello, I am Abolfazl Abdi, Front-End developer with a passion for building efficient solutions and learning new technologies. I started programming in 2024 and have been deepening my expertise since 2025. Alongside coding, I actively study startups and business models, and enjoy following my favorite series.
-
 I have a strong background in computer hardware,  and I am highly interested in teaching and knowledge sharing. My strengths include creativity, adaptability, and a collaborative spirit, which help me thrive in team environments and bring innovative ideas to the table.`}
         />
       </div>
