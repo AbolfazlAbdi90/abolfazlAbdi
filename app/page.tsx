@@ -196,7 +196,7 @@ const Home: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          AB
+          ABddnkfn
         </motion.div>
 
         {/* meno in mobile*/}
