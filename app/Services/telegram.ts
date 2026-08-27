@@ -1,18 +1,22 @@
-const BOT_TOKEN = "8964308293:AAFko5Uh6MGMR1GCYTMKOAfvlvZ0C7KYG68";
-const CHAT_ID = "6826669340";
-
 export async function sendTelegramMessage(message: string) {
   try {
-    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    const response = await fetch("/api/telegram", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: message,
+        message,
       }),
     });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Failed to send message");
+    }
+
+    console.log("Telegram message sent successfully");
   } catch (error) {
     console.error("Telegram Error:", error);
   }
