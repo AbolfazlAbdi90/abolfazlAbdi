@@ -71,14 +71,18 @@ const AutumnLeaves: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+     const canvas = canvasRef.current;
 
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+  if (!canvas) return;
 
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+  const context = canvas.getContext("2d");
+
+  if (!context) return;
+
+  const ctx: CanvasRenderingContext2D = context;
+
+  let width = (canvas.width = window.innerWidth);
+  let height = (canvas.height = window.innerHeight);
 
     interface LeafType {
       x: number;
@@ -341,8 +345,7 @@ const AutumnLeaves: React.FC = () => {
         position: "fixed",
         top: 0,
         left: 0,
-        width: "",
-        height: "",
+       
         pointerEvents: "none",
         zIndex: 50,
       }}
