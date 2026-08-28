@@ -67,89 +67,257 @@ const Typewriter: React.FC = () => {
   );
 };
 
-const Snowfall: React.FC = () => {
+const AutumnLeaves: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    interface ParticleType {
+    interface LeafType {
       x: number;
       y: number;
-      radius: number;
+      size: number;
       speedY: number;
       speedX: number;
+      rotation: number;
+      rotationSpeed: number;
+      swing: number;
+      swingSpeed: number;
+      color: string;
       update: () => void;
       draw: () => void;
     }
 
-    const particles: ParticleType[] = [];
+    const leaves: LeafType[] = [];
 
-    class Particle implements ParticleType {
+    class Leaf implements LeafType {
       x: number;
       y: number;
-      radius: number;
+      size: number;
       speedY: number;
       speedX: number;
+      rotation: number;
+      rotationSpeed: number;
+      swing: number;
+      swingSpeed: number;
+      color: string;
 
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.radius = Math.random() * 3 + 1;
-        this.speedY = Math.random() * 1 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.5;
+
+        // اندازه برگ
+        this.size = Math.random() * 9 + 7;
+
+        // سرعت پایین آمدن
+        this.speedY = Math.random() * 1.2 + 0.6;
+
+        // سرعت اولیه افقی
+        this.speedX = (Math.random() - 0.5) * 0.8;
+
+        // زاویه اولیه
+        this.rotation = Math.random() * Math.PI * 2;
+
+        // سرعت چرخش
+        this.rotationSpeed = (Math.random() - 0.5) * 0.04;
+
+        // برای حرکت موجی برگ
+        this.swing = Math.random() * Math.PI * 2;
+        this.swingSpeed = Math.random() * 0.02 + 0.01;
+
+        // رنگ‌های پاییزی
+        const colors = [
+          "#FACC15", // زرد
+          "#EAB308", // زرد طلایی
+          "#F59E0B", // طلایی
+          "#D97706", // نارنجی
+          "#EA580C", // نارنجی تیره
+          "#DC2626", // قرمز
+          "#B91C1C", // قرمز تیره
+        ];
+
+        this.color = colors[Math.floor(Math.random() * colors.length)];
       }
 
       update() {
+        // حرکت رو به پایین
         this.y += this.speedY;
-        this.x += this.speedX;
-        if (this.y > height) {
-          this.y = 0;
+
+        // حرکت موجی چپ و راست مثل باد
+        this.swing += this.swingSpeed;
+
+        this.x += this.speedX + Math.sin(this.swing) * 0.5;
+
+        // چرخش
+        this.rotation += this.rotationSpeed;
+
+        // اگر برگ از پایین خارج شد
+        if (this.y > height + this.size) {
+          this.y = -this.size;
           this.x = Math.random() * width;
         }
-        if (this.x > width) {
-          this.x = 0;
+
+        // اگر از سمت راست خارج شد
+        if (this.x > width + this.size) {
+          this.x = -this.size;
         }
-        if (this.x < 0) {
-          this.x = width;
+
+        // اگر از سمت چپ خارج شد
+        if (this.x < -this.size) {
+          this.x = width + this.size;
         }
       }
 
       draw() {
-        if (!ctx) return;
+        ctx.save();
+
+        // محل برگ
+        ctx.translate(this.x, this.y);
+
+        // چرخش برگ
+        ctx.rotate(this.rotation);
+
+        const s = this.size;
+
+        /*
+         * برگ افرا
+         */
         ctx.beginPath();
-        ctx.fillStyle = "white";
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+
+        // نوک بالایی
+        ctx.moveTo(0, -s);
+
+        // سمت راست بالا
+        ctx.lineTo(s * 0.18, -s * 0.48);
+        ctx.lineTo(s * 0.65, -s * 0.68);
+
+        // نوک سمت راست
+        ctx.lineTo(s * 0.48, -s * 0.15);
+        ctx.lineTo(s, -s * 0.05);
+
+        // پایین سمت راست
+        ctx.lineTo(s * 0.42, s * 0.25);
+        ctx.lineTo(s * 0.58, s * 0.72);
+
+        // پایین برگ
+        ctx.lineTo(0, s * 0.48);
+
+        // پایین سمت چپ
+        ctx.lineTo(-s * 0.58, s * 0.72);
+        ctx.lineTo(-s * 0.42, s * 0.25);
+
+        // سمت چپ
+        ctx.lineTo(-s, -s * 0.05);
+        ctx.lineTo(-s * 0.48, -s * 0.15);
+
+        // بالا سمت چپ
+        ctx.lineTo(-s * 0.65, -s * 0.68);
+        ctx.lineTo(-s * 0.18, -s * 0.48);
+
+        ctx.closePath();
+
+        // رنگ برگ
+        ctx.fillStyle = this.color;
         ctx.fill();
+
+        /*
+         * ساقه برگ
+         */
+        ctx.beginPath();
+
+        ctx.moveTo(0, s * 0.45);
+        ctx.lineTo(0, s * 0.9);
+
+        ctx.strokeStyle = "rgba(100, 60, 20, 0.7)";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        /*
+         * رگبرگ اصلی
+         */
+        ctx.beginPath();
+
+        ctx.moveTo(0, s * 0.4);
+        ctx.lineTo(0, -s * 0.7);
+
+        ctx.strokeStyle = "rgba(120, 70, 20, 0.45)";
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+
+        /*
+         * رگبرگ‌های فرعی
+         */
+
+        ctx.beginPath();
+
+        // راست بالا
+        ctx.moveTo(0, -s * 0.15);
+        ctx.lineTo(s * 0.45, -s * 0.45);
+
+        // چپ بالا
+        ctx.moveTo(0, -s * 0.15);
+        ctx.lineTo(-s * 0.45, -s * 0.45);
+
+        // راست پایین
+        ctx.moveTo(0, s * 0.15);
+        ctx.lineTo(s * 0.35, s * 0.05);
+
+        // چپ پایین
+        ctx.moveTo(0, s * 0.15);
+        ctx.lineTo(-s * 0.35, s * 0.05);
+
+        ctx.strokeStyle = "rgba(120, 70, 20, 0.35)";
+        ctx.lineWidth = 0.6;
+        ctx.stroke();
+
+        ctx.restore();
       }
     }
 
-    function createParticles(num: number) {
-      particles.length = 0;
+    /*
+     * ساخت برگ‌ها
+     */
+    function createLeaves(num: number) {
+      leaves.length = 0;
+
       for (let i = 0; i < num; i++) {
-        particles.push(new Particle());
+        leaves.push(new Leaf());
       }
     }
 
+    let animationId: number;
+
+    /*
+     * انیمیشن
+     */
     function animate() {
-      if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
-      particles.forEach((p) => {
-        p.update();
-        p.draw();
+
+      leaves.forEach((leaf) => {
+        leaf.update();
+        leaf.draw();
       });
-      requestAnimationFrame(animate);
+
+      animationId = requestAnimationFrame(animate);
     }
 
-    createParticles(100);
+    /*
+     * تعداد برگ‌ها
+     */
+    createLeaves(70);
+
     animate();
 
+    /*
+     * Responsive
+     */
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
@@ -157,8 +325,12 @@ const Snowfall: React.FC = () => {
 
     window.addEventListener("resize", handleResize);
 
+    /*
+     * Cleanup
+     */
     return () => {
       window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationId);
     };
   }, []);
 
@@ -169,10 +341,10 @@ const Snowfall: React.FC = () => {
         position: "fixed",
         top: 0,
         left: 0,
+        width: "",
+        height: "",
         pointerEvents: "none",
         zIndex: 50,
-        width: "100%",
-        height: "100%",
       }}
     />
   );
@@ -187,11 +359,11 @@ const Home: React.FC = () => {
   }, []);
   return (
     <>
-      <Snowfall />
-      <header className="bg-purple-300 min-h-[500px] relative flex flex-col md:flex-row items-center justify-center p-8 md:p-16">
+      <AutumnLeaves />
+      <header className="bg-orange-200 min-h-[500px] relative flex flex-col md:flex-row items-center justify-center p-8 md:p-16">
         {/* logo*/}
         <motion.div
-          className="absolute top-6 left-6 text-3xl font-bold text-teal-700 select-none z-30"
+          className="absolute top-6 left-6 text-3xl font-bold text-red-800 select-none z-30"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -231,24 +403,24 @@ const Home: React.FC = () => {
 
         {/* meno mobile*/}
         {menuOpen && (
-          <nav className="absolute top-16 right-6 bg-white rounded-md shadow-lg py-4 px-6 space-y-4 z-40 md:hidden">
+          <nav className="absolute top-16 right-6 bg-white rounded-md  shadow-lg py-4 px-6 space-y-4 z-40 md:hidden">
             <a
               href="#home"
-              className="block hover:text-purple-700"
+              className="block font-bold text-red-800  hover:text-purple-700"
               onClick={() => setMenuOpen(false)}
             >
               Home
             </a>
             <a
               href="#About"
-              className="block hover:text-purple-700"
+              className="block font-bold text-red-800  hover:text-purple-700"
               onClick={() => setMenuOpen(false)}
             >
               About Me
             </a>
             <a
               href="#portfolio"
-              className="block hover:text-purple-700"
+              className="block font-bold text-red-800  hover:text-purple-700"
               onClick={() => setMenuOpen(false)}
             >
               Profile
@@ -257,7 +429,7 @@ const Home: React.FC = () => {
         )}
 
         {/* meno Desktop*/}
-        <nav className="hidden md:flex absolute top-6 right-6 space-x-8 text-black text-lg z-30">
+        <nav className="hidden md:flex absolute top-6 right-6 space-x-8 font-bold text-red-800  text-lg z-30">
           <a href="#home" className="hover:underline">
             Home
           </a>
@@ -328,7 +500,7 @@ const Home: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <h3 className="text-purple-800 text-xl md:text-2xl font-semibold mb-2">
+            <h3 className="text-red-800 text-xl md:text-2xl font-semibold mb-2">
               Hi There I'm
             </h3>
 
@@ -338,7 +510,7 @@ const Home: React.FC = () => {
             </h1>
 
             {/* آicon social media */}
-            <div className="flex justify-center md:justify-start space-x-6 mt-6 text-black">
+            <div className="flex justify-center md:justify-start space-x-6 mt-6 ">
               {/* Telegram */}
               <a
                 href="https://t.me/AbolfazlAbdi9"
@@ -448,8 +620,7 @@ const Home: React.FC = () => {
       <div id="About">
         <AboutMe
           introText="I love being a developer!"
-          detailText={`Hello, I am Abolfazl Abdi, Front-End developer with a passion for building efficient solutions and learning new technologies. I started programming in 2024 and have been deepening my expertise since 2025. Alongside coding, I actively study startups and business models, and enjoy following my favorite series.
-I have a strong background in computer hardware,  and I am highly interested in teaching and knowledge sharing. My strengths include creativity, adaptability, and a collaborative spirit, which help me thrive in team environments and bring innovative ideas to the table.`}
+          detailText={`Hello, I’m Abolfazl Abdi, a Front-End Developer passionate about creating modern, responsive, and user-friendly web experiences. I started my programming journey in 2024 and have been continuously improving my skills and exploring new technologies ever since. My main focus is building clean, efficient, and maintainable applications using technologies such as JavaScript, TypeScript, React, Next.js, Vue.js, and Tailwind CSS. I enjoy turning ideas into real-world products and solving problems through code. Beyond development, I’m interested in startups, business ideas, and the process of turning technology into meaningful products. I also enjoy learning, sharing knowledge, and working with others to grow both personally and professionally. I believe that consistency, creativity, and continuous learning are the key to becoming a better developer. My goal is to keep challenging myself, build impactful projects, and grow into a strong Full-Stack Developer.`}
         />
       </div>
       {/* <AbalonTeam /> */}
