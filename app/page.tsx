@@ -362,7 +362,6 @@ const Home: React.FC = () => {
   }, []);
   return (
     <>
-      <AutumnLeaves />
       <header className="bg-orange-200 min-h-[500px] relative flex flex-col md:flex-row items-center justify-center p-8 md:p-16">
         {/* logo*/}
         <motion.div
