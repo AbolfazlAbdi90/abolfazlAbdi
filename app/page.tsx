@@ -456,7 +456,7 @@ const Home: React.FC = () => {
           relative
           w-52 h-52
           md:w-64 md:h-64
-          lg:w-80 lg:h-80
+         lg:size-90
           rounded-full overflow-hidden
           border-4 border-black
           shadow-lg
@@ -468,9 +468,9 @@ const Home: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <img
-              src="/image/image.png"
+              src="/image/AboutMe/AboutMe.png"
               alt="Abolfazl Abdi"
-              className="object-cover w-full h-full"
+              className="object-contain w-full h-full"
             />
 
             {/* ring*/}
