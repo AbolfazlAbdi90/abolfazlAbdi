@@ -32,6 +32,13 @@ const projects = [
       "A simple and practical task management application for organizing daily activities efficiently.",
     url: "https://todolist-abdi-nine.vercel.app/",
   },
+  {
+    id: 5,
+    title: "Abalon",
+    description:
+      "cloud Company",
+    url: "https://panel.abalon.cloud/",
+  },
 ];
 
 const Projects = () => {
