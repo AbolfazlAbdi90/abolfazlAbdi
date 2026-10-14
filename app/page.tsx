@@ -8,47 +8,55 @@ import Projects from "./Component/MyProject";
 import { sendTelegramMessage } from "./Services/telegram";
 
 const sentences: string[] = [
-  "I have 1.5 years of experience in Frontend Development👩‍💻",
-  "i love programing ❤️",
-  "I work at the Abalon❤️",
-  "im computer engineer👩‍💻",
+  "i love programing",
+  "I work at the Abalon",
+  "im computer engineer",
 ];
 
 const Typewriter: React.FC = () => {
-  const [displayText, setDisplayText] = useState<string>("");
-  const [sentenceIndex, setSentenceIndex] = useState<number>(0);
-  const [wordIndex, setWordIndex] = useState<number>(0);
+  const [displayText, setDisplayText] = useState("");
+  const [sentenceIndex, setSentenceIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const words = sentences[sentenceIndex].split(" ");
-    if (wordIndex < words.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText((prev) =>
-          prev ? prev + " " + words[wordIndex] : words[wordIndex],
-        );
-        setWordIndex(wordIndex + 1);
-      }, 400);
-      return () => clearTimeout(timeout);
+    const currentSentence = sentences[sentenceIndex];
+
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting && displayText.length < currentSentence.length) {
+      // نمایش نرم و حرف‌به‌حرف
+      timeout = setTimeout(() => {
+        setDisplayText(currentSentence.slice(0, displayText.length + 1));
+      }, 55);
+    } else if (!isDeleting && displayText.length === currentSentence.length) {
+      // مکث پس از کامل شدن متن
+      timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, 1800);
+    } else if (isDeleting && displayText.length > 0) {
+      // پاک شدن نرم متن
+      timeout = setTimeout(() => {
+        setDisplayText(displayText.slice(0, -1));
+      }, 25);
     } else {
-      const timeout = setTimeout(() => {
-        setDisplayText("");
-        setWordIndex(0);
-        setSentenceIndex((prev) => (prev + 1) % sentences.length);
-      }, 2000);
-      return () => clearTimeout(timeout);
+      // رفتن به جمله بعدی
+      setIsDeleting(false);
+      setSentenceIndex((prev) => (prev + 1) % sentences.length);
     }
-  }, [wordIndex, sentenceIndex]);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, sentenceIndex]);
 
   return (
     <motion.p
       className="mt-6 text-sm md:text-base text-black min-h-[1.5rem]"
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      key={sentenceIndex}
+      transition={{ duration: 0.4, ease: "easeOut" }}
     >
       {displayText}
-      <span className="animate-blink">|</span>
+      <span className="inline-block ml-1 text-red-800 animate-blink">|</span>
+
       <style jsx>{`
         @keyframes blink {
           0%,
@@ -59,8 +67,9 @@ const Typewriter: React.FC = () => {
             opacity: 0;
           }
         }
+
         .animate-blink {
-          animation: blink 1s step-start infinite;
+          animation: blink 0.8s ease-in-out infinite;
         }
       `}</style>
     </motion.p>
@@ -71,18 +80,18 @@ const AutumnLeaves: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-     const canvas = canvasRef.current;
+    const canvas = canvasRef.current;
 
-  if (!canvas) return;
+    if (!canvas) return;
 
-  const context = canvas.getContext("2d");
+    const context = canvas.getContext("2d");
 
-  if (!context) return;
+    if (!context) return;
 
-  const ctx: CanvasRenderingContext2D = context;
+    const ctx: CanvasRenderingContext2D = context;
 
-  let width = (canvas.width = window.innerWidth);
-  let height = (canvas.height = window.innerHeight);
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
 
     interface LeafType {
       x: number;
@@ -345,7 +354,7 @@ const AutumnLeaves: React.FC = () => {
         position: "fixed",
         top: 0,
         left: 0,
-       
+
         pointerEvents: "none",
         zIndex: 50,
       }}
