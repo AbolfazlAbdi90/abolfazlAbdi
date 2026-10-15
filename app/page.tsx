@@ -218,7 +218,6 @@ const AutumnLeaves: React.FC = () => {
         ctx.lineWidth = 1;
         ctx.stroke();
 
-        
         ctx.beginPath();
 
         ctx.moveTo(0, s * 0.4);
@@ -227,8 +226,6 @@ const AutumnLeaves: React.FC = () => {
         ctx.strokeStyle = "rgba(120, 70, 20, 0.45)";
         ctx.lineWidth = 0.8;
         ctx.stroke();
-
-        
 
         ctx.beginPath();
 
@@ -252,7 +249,6 @@ const AutumnLeaves: React.FC = () => {
       }
     }
 
-    
     function createLeaves(num: number) {
       leaves.length = 0;
 
@@ -274,12 +270,10 @@ const AutumnLeaves: React.FC = () => {
       animationId = requestAnimationFrame(animate);
     }
 
-   
     createLeaves(70);
 
     animate();
 
-    
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
@@ -287,7 +281,6 @@ const AutumnLeaves: React.FC = () => {
 
     window.addEventListener("resize", handleResize);
 
-    
     return () => {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationId);
@@ -461,21 +454,20 @@ const Home: React.FC = () => {
             <h3 className="text-red-800 text-xl md:text-2xl font-semibold mb-2">
               Hi There I'm
             </h3>
-
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
               Abolfazl <br />
               <span className="text-black">Abdi</span>
             </h1>
-
             {/* آicon social media */}
-            <div className="flex justify-center md:justify-start space-x-6 mt-6 ">
+        
+            <div className="flex justify-center md:justify-start space-x-6 mt-6">
               {/* Telegram */}
               <a
-                href="https://t.me/AbolfazlAbdi9"
+                href="https://t.me/Abolfazl_dev_1386"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Telegram"
-                className="hover:text-purple-700 transition"
+                className="text-black hover:text-[#229ED9] transition-colors duration-300"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -485,9 +477,8 @@ const Home: React.FC = () => {
                   strokeWidth="1.8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="w-8 h-8 text-black"
+                  className="w-8 h-8"
                 >
-                  {/* بدنه تلگرام */}
                   <path d="M21.5 3.5L3 11l6.5 2.2L18.5 7l-7 7.5v3.8l2.9-2.8 3.7 2.7c.5.3 1.1 0 1.3-.6l3.1-13.3c.2-.7-.4-1.2-1-.8z" />
                 </svg>
               </a>
@@ -498,7 +489,7 @@ const Home: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="hover:text-green-600 transition"
+                className="text-black hover:text-[#25D366] transition-colors duration-300"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -508,12 +499,9 @@ const Home: React.FC = () => {
                   strokeWidth="1.8"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="w-8 h-8 text-black"
+                  className="w-8 h-8"
                 >
-                  {/* ring*/}
                   <path d="M12 2a9.93 9.93 0 0 0-8.56 14.96L2 22l5.2-1.36A10 10 0 1 0 12 2z" />
-
-                  {/* phone*/}
                   <path d="M16.1 13.6c-.2-.1-1.2-.6-1.4-.7-.2-.1-.4-.1-.5.1-.2.2-.6.7-.8.8-.1.1-.3.1-.5 0-.2-.1-.9-.3-1.7-1.1-.6-.5-1-1.1-1.1-1.4-.1-.2 0-.3.1-.4l.4-.4.2-.4c.1-.1 0-.3 0-.4l-.6-1.5c-.2-.4-.4-.4-.5-.4h-.4c-.1 0-.3 0-.5.2-.2.2-.6.6-.6 1.4 0 .8.6 1.6.7 1.8.1.1 1.2 2 3 2.7.4.2.7.3 1 .3.4.1.8.1 1.1.1.3 0 1-.4 1.2-.8.2-.4.2-.8.1-.9 0-.1-.2-.2-.4-.3z" />
                 </svg>
               </a>
@@ -523,14 +511,16 @@ const Home: React.FC = () => {
                 href="https://instagram.com/abolfazlabdi418"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-purple-700 transition"
+                aria-label="Instagram"
+                className="text-black hover:text-[#E4405F] transition-colors duration-300"
               >
                 <svg
-                  className="w-8 h-8"
+                  xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
+                  className="w-8 h-8"
                 >
                   <rect x="2" y="2" width="20" height="20" rx="5" />
                   <circle cx="12" cy="12" r="4" />
@@ -543,12 +533,14 @@ const Home: React.FC = () => {
                 href="https://github.com/AbolfazlAbdi90"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-purple-700 transition"
+                aria-label="GitHub"
+                className="text-black hover:text-[#6e5494] transition-colors duration-300"
               >
                 <svg
-                  className="w-8 h-8"
+                  xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
+                  className="w-8 h-8"
                 >
                   <path d="M12 2a10 10 0 00-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.77.6-3.36-1.34-3.36-1.34-.46-1.18-1.12-1.5-1.12-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1 1.53 1 .9 1.53 2.36 1.1 2.94.83.1-.64.35-1.1.63-1.36-2.21-.25-4.54-1.1-4.54-4.91 0-1.1.39-2 1.03-2.7-.1-.26-.45-1.3.1-2.7 0 0 .84-.27 2.76 1.02a9.48 9.48 0 015.04 0c1.92-1.29 2.76-1.02 2.76-1.02.55 1.4.2 2.44.1 2.7.64.7 1.02 1.6 1.02 2.7 0 3.81-2.34 4.66-4.56 4.91.36.3.68.9.68 1.82v2.7c0 .27.18.58.68.48A10 10 0 0012 2z" />
                 </svg>
@@ -556,21 +548,23 @@ const Home: React.FC = () => {
 
               {/* LinkedIn */}
               <a
-                href="https://www.linkedin.com/in/abolfazl-abdi"
+                href="https://www.linkedin.com/in/abolfazl-abdi-7062773a0/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-purple-700 transition"
+                aria-label="LinkedIn"
+                className="text-black hover:text-[#0A66C2] transition-colors duration-300"
               >
                 <svg
-                  className="w-8 h-8"
+                  xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="currentColor"
+                  className="w-8 h-8"
                 >
                   <path d="M4.98 3.5A2.5 2.5 0 110 3.5a2.5 2.5 0 014.98 0zM.5 8.98H4.9V22H.5zM8.98 8.98h4.18v1.78h.06a4.6 4.6 0 014.13-2.27c4.42 0 5.24 2.91 5.24 6.69V22H17v-7.59c0-1.81-.03-4.14-2.53-4.14-2.53 0-2.91 1.97-2.91 4.01V22H8.98z" />
                 </svg>
               </a>
             </div>
-
+            
             <Typewriter />
           </motion.div>
         </div>
@@ -585,8 +579,7 @@ const Home: React.FC = () => {
 
       <AboutMeandTitle />
       <Projects />
-            <SpotifyPlayer />
-
+      <SpotifyPlayer />
     </>
   );
 };

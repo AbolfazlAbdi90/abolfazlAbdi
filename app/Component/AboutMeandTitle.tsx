@@ -11,11 +11,7 @@ const AboutMeandTitle = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#fff8ef] via-[#ffeedf] to-[#f8dfc8] px-6 py-20">
       {/* Background Decorations */}
-      <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#bd8968]/20 blur-[100px]" />
-
-      <div className="pointer-events-none absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-[#d6a078]/25 blur-[100px]" />
-
-      <div className="pointer-events-none absolute left-0 top-0 h-40 w-40 rounded-full border border-[#9a6245]/20" />
+      
 
       {/* Main Card */}
       <div
