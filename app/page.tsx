@@ -2,10 +2,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import AboutMe from "./About/page";
-import AbalonTeam from "./Component/AbalonTeam";
 import AboutMeandTitle from "./Component/AboutMeandTitle";
 import Projects from "./Component/MyProject";
 import { sendTelegramMessage } from "./Services/telegram";
+import SpotifyPlayer from "./Component/SpotifyPlayer";
 
 const sentences: string[] = [
   "i love programing",
@@ -24,22 +24,18 @@ const Typewriter: React.FC = () => {
     let timeout: ReturnType<typeof setTimeout>;
 
     if (!isDeleting && displayText.length < currentSentence.length) {
-      // نمایش نرم و حرف‌به‌حرف
       timeout = setTimeout(() => {
         setDisplayText(currentSentence.slice(0, displayText.length + 1));
       }, 55);
     } else if (!isDeleting && displayText.length === currentSentence.length) {
-      // مکث پس از کامل شدن متن
       timeout = setTimeout(() => {
         setIsDeleting(true);
       }, 1800);
     } else if (isDeleting && displayText.length > 0) {
-      // پاک شدن نرم متن
       timeout = setTimeout(() => {
         setDisplayText(displayText.slice(0, -1));
       }, 25);
     } else {
-      // رفتن به جمله بعدی
       setIsDeleting(false);
       setSentenceIndex((prev) => (prev + 1) % sentences.length);
     }
@@ -126,26 +122,19 @@ const AutumnLeaves: React.FC = () => {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
 
-        // اندازه برگ
         this.size = Math.random() * 9 + 7;
 
-        // سرعت پایین آمدن
         this.speedY = Math.random() * 1.2 + 0.6;
 
-        // سرعت اولیه افقی
         this.speedX = (Math.random() - 0.5) * 0.8;
 
-        // زاویه اولیه
         this.rotation = Math.random() * Math.PI * 2;
 
-        // سرعت چرخش
         this.rotationSpeed = (Math.random() - 0.5) * 0.04;
 
-        // برای حرکت موجی برگ
         this.swing = Math.random() * Math.PI * 2;
         this.swingSpeed = Math.random() * 0.02 + 0.01;
 
-        // رنگ‌های پاییزی
         const colors = [
           "#FACC15", // زرد
           "#EAB308", // زرد طلایی
@@ -160,29 +149,23 @@ const AutumnLeaves: React.FC = () => {
       }
 
       update() {
-        // حرکت رو به پایین
         this.y += this.speedY;
 
-        // حرکت موجی چپ و راست مثل باد
         this.swing += this.swingSpeed;
 
         this.x += this.speedX + Math.sin(this.swing) * 0.5;
 
-        // چرخش
         this.rotation += this.rotationSpeed;
 
-        // اگر برگ از پایین خارج شد
         if (this.y > height + this.size) {
           this.y = -this.size;
           this.x = Math.random() * width;
         }
 
-        // اگر از سمت راست خارج شد
         if (this.x > width + this.size) {
           this.x = -this.size;
         }
 
-        // اگر از سمت چپ خارج شد
         if (this.x < -this.size) {
           this.x = width + this.size;
         }
@@ -191,58 +174,41 @@ const AutumnLeaves: React.FC = () => {
       draw() {
         ctx.save();
 
-        // محل برگ
         ctx.translate(this.x, this.y);
 
-        // چرخش برگ
         ctx.rotate(this.rotation);
 
         const s = this.size;
 
-        /*
-         * برگ افرا
-         */
         ctx.beginPath();
 
-        // نوک بالایی
         ctx.moveTo(0, -s);
 
-        // سمت راست بالا
         ctx.lineTo(s * 0.18, -s * 0.48);
         ctx.lineTo(s * 0.65, -s * 0.68);
 
-        // نوک سمت راست
         ctx.lineTo(s * 0.48, -s * 0.15);
         ctx.lineTo(s, -s * 0.05);
 
-        // پایین سمت راست
         ctx.lineTo(s * 0.42, s * 0.25);
         ctx.lineTo(s * 0.58, s * 0.72);
 
-        // پایین برگ
         ctx.lineTo(0, s * 0.48);
 
-        // پایین سمت چپ
         ctx.lineTo(-s * 0.58, s * 0.72);
         ctx.lineTo(-s * 0.42, s * 0.25);
 
-        // سمت چپ
         ctx.lineTo(-s, -s * 0.05);
         ctx.lineTo(-s * 0.48, -s * 0.15);
 
-        // بالا سمت چپ
         ctx.lineTo(-s * 0.65, -s * 0.68);
         ctx.lineTo(-s * 0.18, -s * 0.48);
 
         ctx.closePath();
 
-        // رنگ برگ
         ctx.fillStyle = this.color;
         ctx.fill();
 
-        /*
-         * ساقه برگ
-         */
         ctx.beginPath();
 
         ctx.moveTo(0, s * 0.45);
@@ -252,9 +218,7 @@ const AutumnLeaves: React.FC = () => {
         ctx.lineWidth = 1;
         ctx.stroke();
 
-        /*
-         * رگبرگ اصلی
-         */
+        
         ctx.beginPath();
 
         ctx.moveTo(0, s * 0.4);
@@ -264,25 +228,19 @@ const AutumnLeaves: React.FC = () => {
         ctx.lineWidth = 0.8;
         ctx.stroke();
 
-        /*
-         * رگبرگ‌های فرعی
-         */
+        
 
         ctx.beginPath();
 
-        // راست بالا
         ctx.moveTo(0, -s * 0.15);
         ctx.lineTo(s * 0.45, -s * 0.45);
 
-        // چپ بالا
         ctx.moveTo(0, -s * 0.15);
         ctx.lineTo(-s * 0.45, -s * 0.45);
 
-        // راست پایین
         ctx.moveTo(0, s * 0.15);
         ctx.lineTo(s * 0.35, s * 0.05);
 
-        // چپ پایین
         ctx.moveTo(0, s * 0.15);
         ctx.lineTo(-s * 0.35, s * 0.05);
 
@@ -294,9 +252,7 @@ const AutumnLeaves: React.FC = () => {
       }
     }
 
-    /*
-     * ساخت برگ‌ها
-     */
+    
     function createLeaves(num: number) {
       leaves.length = 0;
 
@@ -307,9 +263,6 @@ const AutumnLeaves: React.FC = () => {
 
     let animationId: number;
 
-    /*
-     * انیمیشن
-     */
     function animate() {
       ctx.clearRect(0, 0, width, height);
 
@@ -321,16 +274,12 @@ const AutumnLeaves: React.FC = () => {
       animationId = requestAnimationFrame(animate);
     }
 
-    /*
-     * تعداد برگ‌ها
-     */
+   
     createLeaves(70);
 
     animate();
 
-    /*
-     * Responsive
-     */
+    
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
@@ -338,9 +287,7 @@ const AutumnLeaves: React.FC = () => {
 
     window.addEventListener("resize", handleResize);
 
-    /*
-     * Cleanup
-     */
+    
     return () => {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationId);
@@ -638,6 +585,8 @@ const Home: React.FC = () => {
 
       <AboutMeandTitle />
       <Projects />
+            <SpotifyPlayer />
+
     </>
   );
 };
