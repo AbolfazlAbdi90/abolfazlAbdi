@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 
-const SPOTIFY_URL =
-  "https://open.spotify.com/track/0kfe9dDMNl5q8b6TjfZ76u?go=1&sp_cid=cfb28c64-4762-4c65-9c61-c71994b6cb5e&t=29&utm_source=embed_player_p&utm_medium=mobile&nd=1&dlsi=77e76101c9d6405c&autoplay_ok=1";
+const SPOTIFY_URL = "https://open.spotify.com/track/5Osd2BWeCNtA6EMLY0Dsil";
 
 function getSpotifyEmbedUrl(url: string): string | null {
   try {
@@ -200,24 +199,6 @@ export default function SpotifyPlayer() {
             <p className="rounded-xl bg-white/60 p-5 text-sm text-[#603923]">
               Please add a valid Spotify track or playlist link.
             </p>
-          )}
-        </div>
-
-        {/* Stop Button */}
-        <div className="px-3 pb-4">
-          {isPlayingSession && (
-            <button
-              type="button"
-              onClick={stopMusic}
-              className="
-                w-full rounded-xl border border-[#d9b79c]
-                bg-white/60 px-4 py-2.5
-                text-sm font-semibold text-[#70452e]
-                transition hover:bg-[#ead5c1]
-              "
-            >
-              Stop Music
-            </button>
           )}
         </div>
       </div>
