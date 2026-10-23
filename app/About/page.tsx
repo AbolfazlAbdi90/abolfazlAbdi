@@ -1,4 +1,3 @@
-
 "use client";
 
 import React from "react";
@@ -21,6 +20,7 @@ const skills = [
   { name: "TypeScript", percent: 65 },
   { name: "GitHub", percent: 75 },
   { name: "GitLab", percent: 70 },
+  { name: "Git", percent: 80 },
 ];
 
 const experiences = [
@@ -51,10 +51,7 @@ const experiences = [
   },
 ];
 
-const AboutMe: React.FC<AboutMeProps> = ({
-  introText,
-  detailText,
-}) => {
+const AboutMe: React.FC<AboutMeProps> = ({ introText, detailText }) => {
   return (
     <section
       id="about"
@@ -69,7 +66,6 @@ const AboutMe: React.FC<AboutMeProps> = ({
       <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-amber-300/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl">
-
         {/* ================= ABOUT ================= */}
 
         <motion.div
@@ -158,9 +154,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
                 }}
               >
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="font-semibold text-stone-800">
-                    {name}
-                  </span>
+                  <span className="font-semibold text-stone-800">{name}</span>
 
                   <span className="text-sm font-bold text-orange-700">
                     {percent}%
@@ -215,16 +209,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
 
           <div className="grid gap-8 md:grid-cols-2">
             {experiences.map(
-              (
-                {
-                  company,
-                  position,
-                  duration,
-                  status,
-                  duties,
-                },
-                index
-              ) => (
+              ({ company, position, duration, status, duties }, index) => (
                 <motion.div
                   key={index}
                   whileHover={{
@@ -260,9 +245,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
                           className="max-h-[80%] max-w-[80%] object-contain"
                         />
                       ) : (
-                        <span className="text-stone-500">
-                          Logo
-                        </span>
+                        <span className="text-stone-500">Logo</span>
                       )}
                     </div>
 
@@ -291,10 +274,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
 
                   <ul className="relative space-y-3 text-sm leading-relaxed text-stone-600">
                     {duties.map((duty, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-3"
-                      >
+                      <li key={i} className="flex items-start gap-3">
                         <span className="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-orange-100 text-xs font-bold text-orange-700">
                           ✓
                         </span>
@@ -308,7 +288,7 @@ const AboutMe: React.FC<AboutMeProps> = ({
 
                   <div className="absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 bg-gradient-to-r from-orange-500 via-amber-500 to-red-600 transition-transform duration-500 group-hover:scale-x-100" />
                 </motion.div>
-              )
+              ),
             )}
           </div>
         </motion.section>
@@ -318,4 +298,3 @@ const AboutMe: React.FC<AboutMeProps> = ({
 };
 
 export default AboutMe;
-
