@@ -459,7 +459,7 @@ const Home: React.FC = () => {
               <span className="text-black">Abdi</span>
             </h1>
             {/* آicon social media */}
-        
+
             <div className="flex justify-center md:justify-start space-x-6 mt-6">
               {/* Telegram */}
               <a
@@ -564,7 +564,7 @@ const Home: React.FC = () => {
                 </svg>
               </a>
             </div>
-            
+
             <Typewriter />
           </motion.div>
         </div>
@@ -572,7 +572,13 @@ const Home: React.FC = () => {
       <div id="About">
         <AboutMe
           introText="I love being a developer!"
-          detailText={`Hello, I’m Abolfazl Abdi, a Front-End Developer passionate about creating modern, responsive, and user-friendly web experiences. I started my programming journey in 2024 and have been continuously improving my skills and exploring new technologies ever since. My main focus is building clean, efficient, and maintainable applications using technologies such as JavaScript, TypeScript, React, Next.js, Vue.js, and Tailwind CSS. I enjoy turning ideas into real-world products and solving problems through code. Beyond development, I’m interested in startups, business ideas, and the process of turning technology into meaningful products. I also enjoy learning, sharing knowledge, and working with others to grow both personally and professionally. I believe that consistency, creativity, and continuous learning are the key to becoming a better developer. My goal is to keep challenging myself, build impactful projects, and grow into a strong Full-Stack Developer.`}
+          detailText="I'm a Front-End Developer focused on building modern, responsive, and high-performance web applications. I combine clean code, thoughtful design, and a user-centered approach to create digital experiences that are both functional and visually engaging.
+
+My expertise includes JavaScript, TypeScript, React, Next.js, Vue.js, and Tailwind CSS. I value scalable architecture, maintainable code, and efficient development practices, always aiming to deliver reliable and polished solutions.
+
+Beyond coding, I'm passionate about technology, product development, and startup ideas. I enjoy exploring new approaches, solving complex problems, and collaborating with others to transform ideas into meaningful digital products.
+
+I'm continuously expanding my technical knowledge with a clear goal: to become a well-rounded Full-Stack Developer capable of building complete, scalable, and impactful applications."
         />
       </div>
       {/* <AbalonTeam /> */}
