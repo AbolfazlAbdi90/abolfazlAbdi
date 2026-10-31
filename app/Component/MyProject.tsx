@@ -39,6 +39,13 @@ const projects = [
       "cloud Company",
     url: "https://panel.abalon.cloud/",
   },
+  {
+    id: 6,
+    title: "CafeChii",
+    description:
+      "CafeChii",
+    url: "https://cafechii-one.vercel.app/",
+  },
 ];
 
 const Projects = () => {
