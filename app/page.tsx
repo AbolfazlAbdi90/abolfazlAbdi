@@ -331,7 +331,7 @@ const Home: React.FC = () => {
           </div>
           <div className="hidden sm:block">
             <p className="text-sm font-extrabold tracking-widest text-[#38251C]">
-              ABOLFAZL ABDI
+              ABOLFcodeAZL ABDI
             </p>
             <p className="mt-0.5 text-[10px] tracking-[3px] text-[#96765C]">
               FRONT-END DEVELOPER

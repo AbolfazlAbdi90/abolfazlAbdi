@@ -53,6 +53,14 @@ const projects = [
     url: "https://cafechii-one.vercel.app/",
     category: "Landing Page",
   },
+  {
+    id: 7,
+    title: "dentist website",
+    description:
+      "A modern cafe website with an elegant visual identity and a welcoming digital experience.",
+    url: "https://dentistry-sigma-seven.vercel.app/",
+    category: "Landing Page",
+  },
 ];
 
 const Projects = () => {
