@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -8,43 +9,49 @@ const projects = [
     id: 1,
     title: "Beauty Salon Website",
     description:
-      "A modern beauty salon website showcasing services, design, and user-friendly interactions.",
+      "A modern beauty salon website featuring elegant design, service presentation, and a smooth user experience.",
     url: "https://beuty-salon-abdi-topaz.vercel.app/",
+    category: "Web Development",
   },
   {
     id: 2,
     title: "Mobile Store",
     description:
-      "An online mobile store with user authentication, product management, shopping cart, and modern UI.",
+      "An online mobile store featuring user authentication, product management, and shopping cart functionality.",
     url: "https://mobile-shoping-abdi.vercel.app/",
+    category: "E-Commerce",
   },
   {
     id: 3,
-    title: "Beauty Land Website",
+    title: "Beauty Land",
     description:
-      "A beauty-focused website designed to showcase services, products, and attract customers.",
+      "A beauty-focused platform designed to showcase services and products through a modern digital experience.",
     url: "https://beuty-land2025.vercel.app/",
+    category: "Web Development",
   },
   {
     id: 4,
     title: "To-Do List App",
     description:
-      "A simple and practical task management application for organizing daily activities efficiently.",
+      "A practical task management application designed to help users organize and manage their daily activities.",
     url: "https://todolist-abdi-nine.vercel.app/",
+    category: "Web Application",
   },
   {
     id: 5,
     title: "Abalon",
     description:
-      "cloud Company",
+      "A cloud-based platform providing a digital environment for accessing and managing online services.",
     url: "https://panel.abalon.cloud/",
+    category: "Cloud Platform",
   },
   {
     id: 6,
     title: "CafeChii",
     description:
-      "CafeChii",
+      "A modern cafe website with an elegant visual identity and a welcoming digital experience.",
     url: "https://cafechii-one.vercel.app/",
+    category: "Landing Page",
   },
 ];
 
@@ -52,324 +59,204 @@ const Projects = () => {
   return (
     <section
       id="portfolio"
-      className="
-        relative
-        overflow-hidden
-        bg-gradient-to-b
-        from-[#fef3e2]
-        via-[#fff7ed]
-        to-[#fffaf3]
-        px-6
-        py-24
-      "
+      className="relative isolate overflow-hidden bg-[#fffaf3] px-6 py-24 md:py-32"
     >
-      {/* Background Decorations */}
+      {/* Background */}
 
-      <div
-        className="
-          absolute
-          -top-32
-          -left-32
-          h-80
-          w-80
-          rounded-full
-          bg-orange-300/20
-          blur-3xl
-        "
-      />
+      <div className="pointer-events-none absolute -left-40 top-20 -z-10 h-[450px] w-[450px] rounded-full bg-[#e8c5a5]/20 blur-[120px]" />
 
-      <div
-        className="
-          absolute
-          top-1/2
-          -right-32
-          h-96
-          w-96
-          rounded-full
-          bg-red-300/10
-          blur-3xl
-        "
-      />
-
-      <div
-        className="
-          absolute
-          bottom-0
-          left-1/3
-          h-72
-          w-72
-          rounded-full
-          bg-amber-300/10
-          blur-3xl
-        "
-      />
+      <div className="pointer-events-none absolute -right-40 bottom-0 -z-10 h-[450px] w-[450px] rounded-full bg-[#d9ad82]/20 blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl">
-        {/* ================= HEADER ================= */}
+
+        {/* Header */}
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mb-16 text-center"
+          className="mb-20 text-center"
         >
-          <span
-            className="
-              text-sm
-              font-semibold
-              uppercase
-              tracking-[0.35em]
-              text-orange-700
-            "
-          >
-            My Work
-          </span>
+          <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-[#e8d4c0] bg-white/70 px-5 py-2.5 shadow-sm backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#bd8256] opacity-50" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#bd8256]" />
+            </span>
 
-          <h1
-            className="
-              mt-3
-              text-5xl
-              font-extrabold
-              tracking-tight
-              text-stone-900
-              md:text-6xl
-            "
-          >
-            My Projects
-          </h1>
+            <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#9b6847]">
+              Selected Works
+            </span>
+          </div>
 
-          <div
-            className="
-              mx-auto
-              mt-5
-              h-1.5
-              w-24
-              rounded-full
-              bg-gradient-to-r
-              from-orange-500
-              via-amber-500
-              to-red-600
-            "
-          />
+          <h2 className="text-4xl font-black tracking-tight text-[#493326] sm:text-5xl md:text-6xl">
+            Crafted With
+            <span className="block mt-2 bg-gradient-to-r from-[#bd8256] to-[#d9a77d] bg-clip-text text-transparent">
+              Passion & Code.
+            </span>
+          </h2>
 
-          <p
-            className="
-              mx-auto
-              mt-6
-              max-w-2xl
-              text-sm
-              leading-7
-              text-stone-600
-              md:text-base
-            "
-          >
-            A collection of projects I have built while learning, experimenting,
-            and improving my development skills.
+          <p className="mx-auto mt-7 max-w-xl text-sm leading-8 text-[#806b5b] md:text-base">
+            A selection of digital experiences, creative ideas,
+            and modern solutions built with passion and attention to detail.
           </p>
+
+          <div className="mx-auto mt-9 h-[2px] w-20 rounded-full bg-gradient-to-r from-transparent via-[#bd8256] to-transparent" />
         </motion.div>
 
-        {/* ================= PROJECTS ================= */}
+        {/* Projects */}
 
-        <div
-          className="
-            grid
-            grid-cols-1
-            gap-8
-            sm:grid-cols-2
-            lg:grid-cols-4
-          "
-        >
-          {projects.map(({ id, title, description, url }, index) => (
-            <motion.div
-              key={id}
-              initial={{
-                opacity: 0,
-                y: 50,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              viewport={{ once: true }}
+        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
+
+          {projects.map((project, index) => (
+            <motion.a
+              key={project.id}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+
               transition={{
-                duration: 0.6,
-                delay: index * 0.1,
+                duration: 0.65,
+                delay: index * 0.09,
               }}
-              whileHover={{
-                y: -12,
-              }}
+
+              whileHover={{ y: -10 }}
+
               className="
-                  group
-                  relative
-                  flex
-                  min-h-[390px]
-                  cursor-pointer
-                  flex-col
-                  overflow-hidden
-                  rounded-3xl
-                  border
-                  border-orange-200
-                  bg-white/80
-                  p-7
-                  shadow-lg
-                  backdrop-blur-xl
-                  transition-shadow
-                  duration-300
-                  hover:shadow-2xl
-                "
-              onClick={() => window.open(url, "_blank")}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  window.open(url, "_blank");
-                }
-              }}
-              role="link"
-              tabIndex={0}
+                group relative flex min-h-[355px] flex-col
+                overflow-hidden rounded-[30px]
+                border border-[#ead9c8]
+                bg-white/65 p-7
+                shadow-[0_10px_40px_rgba(96,57,35,0.045)]
+                backdrop-blur-xl
+                transition-all duration-500
+                hover:border-[#c99b76]
+                hover:bg-white
+                hover:shadow-[0_25px_60px_rgba(96,57,35,0.12)]
+                sm:p-8
+              "
             >
-              {/* Decorative Circle */}
 
-              <div
-                className="
-                    absolute
-                    -right-16
-                    -top-16
-                    h-40
-                    w-40
-                    rounded-full
-                    bg-orange-300/20
-                    blur-2xl
-                    transition
-                    duration-500
-                    group-hover:bg-orange-400/30
-                  "
-              />
+              {/* Decorative Background */}
 
-              {/* Project Number */}
+              <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#bd8256]/[0.04] transition-all duration-700 group-hover:scale-150 group-hover:bg-[#bd8256]/[0.09]" />
 
-              <div
-                className="
-                    relative
-                    mb-8
-                    flex
-                    items-center
-                    justify-between
-                  "
-              >
-                <span
-                  className="
-                      flex
-                      h-12
-                      w-12
-                      items-center
-                      justify-center
-                      rounded-2xl
-                      bg-orange-100
-                      text-lg
-                      font-extrabold
-                      text-orange-700
-                    "
-                >
-                  0{id}
-                </span>
+              {/* Top */}
 
-                <span
-                  className="
-                      text-5xl
-                      font-black
-                      text-orange-100
-                    "
-                >
-                  {id}
-                </span>
+              <div className="relative mb-12 flex items-center justify-between">
+
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-black tracking-[0.18em] text-[#bd8256]">
+                    0{project.id}
+                  </span>
+
+                  <span className="h-px w-9 bg-[#dfc7b2]" />
+
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#ad9885]">
+                    PROJECT
+                  </span>
+                </div>
+
+                <div className="
+                  flex h-11 w-11 items-center justify-center
+                  rounded-full border border-[#ead9c8]
+                  bg-white text-lg text-[#9b6847]
+                  transition-all duration-500
+                  group-hover:rotate-45
+                  group-hover:border-[#bd8256]
+                  group-hover:bg-[#bd8256]
+                  group-hover:text-white
+                ">
+                  ↗
+                </div>
+
               </div>
 
-              {/* Project Content */}
+              {/* Content */}
 
               <div className="relative flex-1">
-                <h2
-                  className="
-                      mb-4
-                      border-b-4
-                      border-orange-300
-                      pb-3
-                      text-2xl
-                      font-extrabold
-                      tracking-tight
-                      text-stone-900
-                      transition-colors
-                      duration-300
-                      group-hover:text-orange-700
-                      group-hover:border-orange-500
-                    "
-                >
-                  {title}
-                </h2>
 
-                <p
-                  className="
-                      text-sm
-                      leading-7
-                      text-stone-600
-                    "
-                >
-                  {description}
+                <span className="
+                  mb-4 inline-flex rounded-full
+                  bg-[#fff3e7] px-3 py-1.5
+                  text-[10px] font-bold uppercase
+                  tracking-[0.13em] text-[#a87550]
+                ">
+                  {project.category}
+                </span>
+
+                <h3 className="
+                  mb-4 text-[23px] font-extrabold
+                  leading-tight tracking-tight text-[#493326]
+                  transition-colors duration-300
+                  group-hover:text-[#a36c43]
+                ">
+                  {project.title}
+                </h3>
+
+                <p className="text-[13px] leading-[2.1] text-[#806b5b]">
+                  {project.description}
                 </p>
+
               </div>
 
-              {/* Button */}
+              {/* Footer */}
 
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open(url, "_blank");
-                }}
-                className="
-                    relative
-                    mt-8
-                    w-full
-                    rounded-full
-                    bg-gradient-to-r
-                    from-orange-500
-                    via-amber-500
-                    to-red-600
-                    px-6
-                    py-3
-                    font-semibold
-                    text-white
-                    shadow-lg
-                    transition-all
-                    duration-300
-                    hover:scale-105
-                    hover:shadow-xl
-                  "
-              >
-                Visit Project
-              </button>
+              <div className="relative mt-9 flex items-center justify-between border-t border-[#eee0d3] pt-6">
+
+                <span className="text-xs font-bold tracking-wide text-[#9b6847] transition-all duration-300 group-hover:tracking-widest">
+                  Explore Project
+                </span>
+
+                <span className="
+                  flex h-9 w-9 items-center justify-center
+                  rounded-full bg-[#fff2e4]
+                  text-[#a36c43]
+                  transition-all duration-300
+                  group-hover:translate-x-1
+                  group-hover:bg-[#bd8256]
+                  group-hover:text-white
+                ">
+                  →
+                </span>
+
+              </div>
 
               {/* Bottom Accent */}
 
-              <div
-                className="
-                    absolute
-                    bottom-0
-                    left-0
-                    h-1
-                    w-full
-                    origin-left
-                    scale-x-0
-                    bg-gradient-to-r
-                    from-orange-500
-                    via-amber-500
-                    to-red-600
-                    transition-transform
-                    duration-500
-                    group-hover:scale-x-100
-                  "
-              />
-            </motion.div>
+              <div className="
+                absolute bottom-0 left-0 h-[3px] w-full
+                origin-left scale-x-0
+                bg-gradient-to-r from-[#bd8256] via-[#d5a16f] to-[#edc58e]
+                transition-transform duration-700
+                group-hover:scale-x-100
+              " />
+
+            </motion.a>
           ))}
+
         </div>
+
+        {/* Bottom */}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-20 text-center"
+        >
+          <p className="text-xs font-medium tracking-[0.12em] text-[#987e6b]">
+            MORE IDEAS <span className="mx-2 text-[#bd8256]">✦</span>
+            MORE EXPERIENCES <span className="mx-2 text-[#bd8256]">✦</span>
+            MORE PROJECTS TO COME
+          </p>
+        </motion.div>
+
       </div>
     </section>
   );
