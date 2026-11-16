@@ -331,7 +331,7 @@ const Home: React.FC = () => {
           </div>
           <div className="hidden sm:block">
             <p className="text-sm font-extrabold tracking-widest text-[#38251C]">
-              ABOLFcodeAZL ABDI
+              Abolfazl Abdi
             </p>
             <p className="mt-0.5 text-[10px] tracking-[3px] text-[#96765C]">
               FRONT-END DEVELOPER
@@ -394,7 +394,7 @@ const Home: React.FC = () => {
               </div>
 
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#F1E4D5] text-xl text-[#80583D]">
-                ✦
+                AB
               </div>
             </div>
 
@@ -423,15 +423,6 @@ const Home: React.FC = () => {
                   </span>
                 </a>
               ))}
-            </div>
-
-            <div className="mt-6 rounded-2xl bg-[#38251C] p-4 text-center">
-              <p className="text-xs tracking-widest text-[#DCC9B4]">
-                CREATIVE DEVELOPER
-              </p>
-              <p className="mt-1 text-sm font-semibold text-[#FFF8EF]">
-                Turning Ideas Into Reality.
-              </p>
             </div>
           </nav>
         </div>
@@ -520,7 +511,7 @@ const Home: React.FC = () => {
             </h1>
 
             <div className="my-6 flex items-center justify-center gap-3 md:justify-start">
-              <span className="h-[2px] w-12 rounded-full bg-[#A17B5C]" />
+              
               <span className="text-xs font-bold uppercase tracking-[4px] text-[#A17B5C]">
                 Front-End Developer
               </span>
